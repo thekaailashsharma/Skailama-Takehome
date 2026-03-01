@@ -1,0 +1,23 @@
+.app {
+  min-height: 100vh;
+  padding: 24px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.app-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 24px;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .app {
+    padding: 16px;
+  }
+  .app-main {
+    grid-template-columns: 1fr;
+  }
+}
