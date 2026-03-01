@@ -23,8 +23,13 @@ export const createProfile = (name) =>
     body: JSON.stringify({ name }),
   });
 
-export const fetchEvents = (profileId) =>
-  request(`/events?profileId=${profileId}`);
+export const fetchEvents = ({ profileId, timezone } = {}) => {
+  const params = new URLSearchParams();
+  if (profileId) params.set('profileId', profileId);
+  if (timezone) params.set('timezone', timezone);
+  const query = params.toString();
+  return request(`/events${query ? '?' + query : ''}`);
+};
 
 export const createEvent = (data) =>
   request('/events', {

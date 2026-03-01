@@ -6,18 +6,23 @@ const ApiError = require('../utils/ApiError');
 const diffEvent = require('../utils/diffEvent');
 
 const getEvents = asyncHandler(async (req, res) => {
-  const { profileId } = req.query;
+  const { profileId, timezone } = req.query;
 
-  if (!profileId) {
-    throw new ApiError(400, 'profileId is required');
+  let query = {};
+
+  if (profileId) {
+    const profile = await Profile.findById(profileId);
+    if (!profile) {
+      throw new ApiError(404, 'Profile not found');
+    }
+    query.profiles = profileId;
   }
 
-  const profile = await Profile.findById(profileId);
-  if (!profile) {
-    throw new ApiError(404, 'Profile not found');
+  if (timezone) {
+    query.timezone = timezone;
   }
 
-  const events = await Event.find({ profiles: profileId })
+  const events = await Event.find(query)
     .populate('profiles', 'name')
     .sort({ startTime: 1 });
 

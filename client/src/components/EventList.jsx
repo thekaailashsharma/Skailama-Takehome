@@ -7,23 +7,30 @@ import EventLogsModal from './EventLogsModal';
 import './EventList.css';
 
 function EventList({ onEventUpdated }) {
-  const { events, viewTimezone, setViewTimezone, currentProfileId } = useStore();
+  const { events, viewTimezone, setViewTimezone, setCurrentProfileId, currentProfileId } = useStore();
   const [editingEvent, setEditingEvent] = useState(null);
   const [logsEvent, setLogsEvent] = useState(null);
 
+  const handleTimezoneChange = (tz) => {
+    setCurrentProfileId(null);
+    setViewTimezone(tz);
+  };
+
+  const label = currentProfileId
+    ? 'Events for selected profile'
+    : 'Events';
+
   return (
     <div className="card">
-      <h2 className="card-title">Events</h2>
+      <h2 className="card-title">{label}</h2>
 
       <div className="form-group">
         <label className="form-label">View in Timezone</label>
-        <TimezoneSelect value={viewTimezone} onChange={setViewTimezone} />
+        <TimezoneSelect value={viewTimezone} onChange={handleTimezoneChange} />
       </div>
 
       <div className="event-list">
-        {!currentProfileId ? (
-          <p className="no-events">Select a profile to view events</p>
-        ) : events.length === 0 ? (
+        {events.length === 0 ? (
           <p className="no-events">No events found</p>
         ) : (
           events.map(event => (
