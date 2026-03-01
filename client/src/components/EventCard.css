@@ -1,0 +1,75 @@
+.event-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  background: var(--bg-white);
+}
+
+.ec-profiles {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.ec-profiles-text {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.ec-icon {
+  font-size: 14px;
+  min-width: 20px;
+}
+
+.ec-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  padding: 2px 0;
+}
+
+.ec-sub {
+  padding-left: 28px;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.ec-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.ec-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.ec-btn {
+  flex: 1;
+  padding: 8px 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-white);
+  font-size: 13px;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.ec-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}

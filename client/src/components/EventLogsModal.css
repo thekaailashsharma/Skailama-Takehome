@@ -1,0 +1,44 @@
+.logs-loading,
+.logs-empty {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 24px 0;
+  font-size: 14px;
+}
+
+.logs-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.log-entry {
+  border-left: 3px solid var(--primary);
+  padding-left: 12px;
+}
+
+.log-time {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.log-icon {
+  font-size: 12px;
+}
+
+.log-changes {
+  list-style: none;
+  padding-left: 20px;
+}
+
+.log-change {
+  font-size: 13px;
+  color: var(--text);
+  padding: 2px 0;
+}

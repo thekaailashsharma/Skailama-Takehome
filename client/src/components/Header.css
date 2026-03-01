@@ -1,0 +1,32 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.header-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.header-subtitle {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.header-right {
+  min-width: 220px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .header {
+    flex-direction: column;
+  }
+  .header-right {
+    width: 100%;
+  }
+}

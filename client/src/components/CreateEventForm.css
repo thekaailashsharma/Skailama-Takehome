@@ -1,0 +1,36 @@
+.date-time-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.date-input-wrap {
+  flex: 1;
+}
+
+.date-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  color: var(--text);
+  outline: none;
+  background: var(--bg-white);
+}
+
+.date-input:focus {
+  border-color: var(--primary);
+}
+
+.date-input::placeholder {
+  color: var(--text-muted);
+}
+
+.react-datepicker-wrapper {
+  width: 100%;
+}
+
+.react-datepicker__input-container {
+  width: 100%;
+}
