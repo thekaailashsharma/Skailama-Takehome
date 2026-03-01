@@ -259,6 +259,22 @@ Open `http://localhost:5173` and you should be good to go.
 
 ---
 
+## Deploy on Vercel
+
+Both frontend and backend run on Vercel (API as serverless functions). No separate backend host needed.
+
+1. Push the repo to GitHub and import the project in [Vercel](https://vercel.com).
+2. Set **Root Directory** to the repo root (leave default).
+3. Add **Environment Variables** in the Vercel dashboard:
+   - `MONGODB_URI` – your MongoDB Atlas connection string
+   - `CLIENT_URL` – your Vercel app URL, e.g. `https://your-app.vercel.app`
+   - `VITE_API_URL` – set to `/api` so the client calls the same origin
+4. Deploy. The build runs the client, and `/api/*` is served by the Express app as a serverless function.
+
+Local dev is unchanged: run `server` and `client` as above; the API runs on a normal Node server when `VERCEL` is not set.
+
+---
+
 ## Design Decisions
 
 **Why Zustand over Redux?**
