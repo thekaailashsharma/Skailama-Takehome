@@ -1,10 +1,11 @@
 import { create } from 'zustand';
+import { getSystemTimezone } from '../utils/timezone';
 
 const useStore = create((set) => ({
   profiles: [],
   currentProfileId: null,
   events: [],
-  viewTimezone: 'America/New_York',
+  viewTimezone: getSystemTimezone(),
 
   setProfiles: (profiles) => set({ profiles }),
   addProfile: (profile) => set((state) => ({

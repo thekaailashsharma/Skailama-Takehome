@@ -48,4 +48,10 @@ export function getTimezoneLabel(value) {
   return found ? found.label : value;
 }
 
+export function getSystemTimezone() {
+  const system = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  const match = TIMEZONES.find(t => t.value === system);
+  return match ? match.value : 'Asia/Kolkata';
+}
+
 export { dayjs };
